@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.ownnotes.R
+import com.example.ownnotes.databinding.FragmentNewNotesBinding
 import com.example.ownnotes.owNotesApp.viewModels.NotesViewModel
 
 /**
@@ -17,23 +18,24 @@ import com.example.ownnotes.owNotesApp.viewModels.NotesViewModel
  */
 class NewNotesFragment : Fragment() {
     private val notesViewModel = NotesViewModel()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var binding: FragmentNewNotesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Binding
+        binding = FragmentNewNotesBinding.inflate(layoutInflater)
+
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_new_notes, container, false)
 
         val createButton = root.findViewById<Button>(R.id.createButton)
 
         createButton.setOnClickListener{
-            val textFiled1 = root.findViewById<EditText>(R.id.textField1)
-            val textFiled2 = root.findViewById<EditText>(R.id.textField2)
-            notesViewModel.textFields(textFiled1.text.toString(), textFiled2.text.toString())
+            val textField1 = binding.textField1
+            val textField2 = binding.textField2
+            notesViewModel.textFields(textField1.text.toString(), textField2.text.toString())
         }
 
         return root
