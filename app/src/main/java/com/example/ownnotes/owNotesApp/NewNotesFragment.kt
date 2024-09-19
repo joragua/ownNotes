@@ -12,10 +12,10 @@ import com.example.ownnotes.owNotesApp.viewModels.NotesViewModel
 
 /**
  * A simple [Fragment] subclass.
- * Use the [NewNotes.newInstance] factory method to
+ * Use the [NewNotesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class NewNotes : Fragment() {
+class NewNotesFragment : Fragment() {
     private val notesViewModel = NotesViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
