@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.ownnotes.R
+import com.example.ownnotes.owNotesApp.viewModels.NotesViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -13,7 +16,7 @@ import com.example.ownnotes.R
  * create an instance of this fragment.
  */
 class NewNotes : Fragment() {
-
+    private val notesViewModel = NotesViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,7 +26,18 @@ class NewNotes : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_notes, container, false)
+        val root = inflater.inflate(R.layout.fragment_new_notes, container, false)
+
+        val createButton = root.findViewById<Button>(R.id.createButton)
+
+        createButton.setOnClickListener{
+            val textFiled1 = root.findViewById<EditText>(R.id.textField1)
+            val textFiled2 = root.findViewById<EditText>(R.id.textField2)
+            notesViewModel.textFields(textFiled1.text.toString(), textFiled2.text.toString())
+        }
+
+        return root
+
     }
 
 }
