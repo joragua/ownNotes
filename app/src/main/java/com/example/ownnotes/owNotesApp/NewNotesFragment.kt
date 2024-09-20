@@ -25,20 +25,20 @@ class NewNotesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //Binding
-        binding = FragmentNewNotesBinding.inflate(layoutInflater)
+        binding = FragmentNewNotesBinding.inflate(layoutInflater, container, false)
+        return binding.root
 
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_new_notes, container, false)
+    }
 
-        val createButton = root.findViewById<Button>(R.id.createButton)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val createButton = binding.createButton
 
         createButton.setOnClickListener{
             val textField1 = binding.textField1
             val textField2 = binding.textField2
             notesViewModel.textFields(textField1.text.toString(), textField2.text.toString())
         }
-
-        return root
 
     }
 
