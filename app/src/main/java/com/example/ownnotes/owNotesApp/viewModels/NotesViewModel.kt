@@ -1,11 +1,14 @@
 package com.example.ownnotes.owNotesApp.viewModels
 
 import android.util.Log
+import androidx.lifecycle.ViewModel
+import com.example.ownnotes.ownNotesDomain.usecases.SaveNoteUseCase
 
-class NotesViewModel {
+class NotesViewModel (
+    private val saveNoteUseCase: SaveNoteUseCase
+): ViewModel(){
 
     fun  textFields (argument1: String, argument2: String) {
-        Log.i("argument1", argument1)
-        Log.i("argument2", argument2)
+        saveNoteUseCase.run(argument1, argument2)
     }
 }
