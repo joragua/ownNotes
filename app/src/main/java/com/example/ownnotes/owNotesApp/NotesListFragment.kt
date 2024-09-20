@@ -24,12 +24,6 @@ class NotesListFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_first, container, false)
 
-        val buttonNewNote = root.findViewById<FloatingActionButton>(R.id.fab)
-
-        buttonNewNote.setOnClickListener{
-            findNavController().navigate(R.id.action_firstFragment_to_newNotes)
-        }
-
         return root
     }
 
