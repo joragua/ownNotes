@@ -1,4 +1,4 @@
-package com.example.ownnotes.owNotesApp
+package com.example.ownnotes.ownNotesApp
 
 import android.os.Bundle
 import android.view.View

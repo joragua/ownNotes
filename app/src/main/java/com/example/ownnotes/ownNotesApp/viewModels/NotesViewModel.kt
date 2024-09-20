@@ -1,6 +1,5 @@
-package com.example.ownnotes.owNotesApp.viewModels
+package com.example.ownnotes.ownNotesApp.viewModels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.ownnotes.ownNotesDomain.usecases.SaveNoteUseCase
 

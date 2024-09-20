@@ -1,4 +1,4 @@
-package com.example.ownnotes.owNotesApp
+package com.example.ownnotes.ownNotesApp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.ownnotes.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * A simple [Fragment] subclass.
