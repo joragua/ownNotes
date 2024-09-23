@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.ownnotes.databinding.FragmentNewNotesBinding
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 
@@ -14,7 +15,7 @@ import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
  * create an instance of this fragment.
  */
 class NewNotesFragment : Fragment() {
-    private val notesViewModel = NotesViewModel()
+    private val notesViewModel : NotesViewModel by viewModels()
     private lateinit var binding: FragmentNewNotesBinding
 
     override fun onCreateView(
