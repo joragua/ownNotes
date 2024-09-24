@@ -17,5 +17,9 @@
         android:id="@+id/newNotesFragment"
         android:name="com.example.ownnotes.ownNotesApp.NewNotesFragment"
         android:label="fragment_new_notes"
-        tools:layout="@layout/fragment_new_notes" />
+        tools:layout="@layout/fragment_new_notes" >
+        <action
+            android:id="@+id/action_newNotesFragment_to_notesListFragment2"
+            app:destination="@id/notesListFragment" />
+    </fragment>
 </navigation>

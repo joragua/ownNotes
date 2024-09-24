@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.ownnotes.R
 import com.example.ownnotes.databinding.FragmentNewNotesBinding
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -36,6 +38,7 @@ class NewNotesFragment : Fragment() {
             val textField1 = binding.textField1
             val textField2 = binding.textField2
             notesViewModel.textFields(textField1.text.toString(), textField2.text.toString())
+            findNavController().navigate(R.id.action_newNotesFragment_to_notesListFragment2)
         }
 
     }
