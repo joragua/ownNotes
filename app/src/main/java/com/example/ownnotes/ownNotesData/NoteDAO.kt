@@ -6,5 +6,5 @@ import androidx.room.Insert
 @Dao
 interface NoteDAO {
     @Insert
-    fun insertNote (title: String, description: String)
+    fun insertNote (noteEntity: NoteEntity)
 }

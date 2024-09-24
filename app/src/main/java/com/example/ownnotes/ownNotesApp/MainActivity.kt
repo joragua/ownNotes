@@ -10,6 +10,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.ownnotes.R
 import com.example.ownnotes.databinding.ActivityMainBinding
+import com.example.ownnotes.dependecyinjection.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext.startKoin
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        startKoin {
+            androidContext(this@MainActivity)
+            modules(appModule)
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
