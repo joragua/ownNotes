@@ -5,24 +5,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ownnotes.R
+import com.example.ownnotes.databinding.FragmentFirstBinding
+import com.example.ownnotes.databinding.FragmentNewNotesBinding
+import com.example.ownnotes.ownNotesApp.adapter.NoteAdapter
+import com.example.ownnotes.ownNotesDomain.model.Note
 
-/**
- * A simple [Fragment] subclass.
- * Use the [NotesListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NotesListFragment : Fragment() {
-
-    @SuppressLint("MissingInflatedId")
+    private lateinit var binding: FragmentFirstBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_first, container, false)
+        binding = FragmentFirstBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
 
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val manager = LinearLayoutManager(requireContext())
+        val recyclerView = binding.recyclerNotes
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = NoteAdapter(listOf(Note("hola", "q tal"), Note ("yo bien", "y tu")))
     }
 
 }
