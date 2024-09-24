@@ -8,6 +8,8 @@ import com.example.ownnotes.ownNotesData.ownNotesDatabase
 import com.example.ownnotes.ownNotesData.repository.ONNoteRepository
 import com.example.ownnotes.ownNotesDomain.NoteRepository
 import com.example.ownnotes.ownNotesDomain.usecases.SaveNoteUseCase
+import com.example.ownnotes.ownNotesDomain.usecases.GetAllNotesUseCase
+import com.example.ownnotes.ownNotesDomain.usecases.DeleteNoteUseCase
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.dsl.factoryOf
@@ -20,5 +22,7 @@ val appModule = module {
     singleOf(::ONLocalNoteDataSource) bind LocalNoteDataSource::class
     factoryOf(::ONNoteRepository) bind NoteRepository::class
     factoryOf(::SaveNoteUseCase)
-    viewModel{NotesViewModel(get())}
+    factoryOf(::GetAllNotesUseCase)
+    factoryOf(::DeleteNoteUseCase)
+    viewModel{NotesViewModel(get(), get(), get())}
 }

@@ -7,16 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ownnotes.R
 import com.example.ownnotes.databinding.FragmentFirstBinding
 import com.example.ownnotes.databinding.FragmentNewNotesBinding
+import com.example.ownnotes.databinding.ItemNoteBinding
 import com.example.ownnotes.ownNotesApp.adapter.NoteAdapter
+import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import com.example.ownnotes.ownNotesDomain.model.Note
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NotesListFragment : Fragment() {
+    private val notesViewModel by viewModel<NotesViewModel>()
     private lateinit var binding: FragmentFirstBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +34,17 @@ class NotesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val manager = LinearLayoutManager(requireContext())
         val recyclerView = binding.recyclerNotes
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = NoteAdapter(listOf(Note("hola", "q tal"), Note ("yo bien", "y tu")))
+        viewLifecycleOwner.lifecycleScope.launch {
+            notesViewModel.notesList.collect { notesList ->
+                recyclerView.adapter = NoteAdapter(notesList) { note -> onItemSelected(note) }
+            }
+        }
+    }
+
+    fun onItemSelected(note: Note){
+        notesViewModel.deleteNote(note.id)
     }
 
 }

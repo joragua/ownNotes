@@ -37,6 +37,7 @@
             tools:text="@string/note_description" />
 
         <ImageView
+            android:id="@+id/delete_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/delete_icon"
