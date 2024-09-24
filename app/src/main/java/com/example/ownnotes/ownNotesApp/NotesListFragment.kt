@@ -1,5 +1,6 @@
-package com.example.ownnotes.owNotesApp
+package com.example.ownnotes.ownNotesApp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,21 +10,19 @@ import com.example.ownnotes.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [NewNotes.newInstance] factory method to
+ * Use the [NotesListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class NewNotes : Fragment() {
+class NotesListFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_notes, container, false)
+        val root = inflater.inflate(R.layout.fragment_first, container, false)
+
+        return root
     }
 
 }

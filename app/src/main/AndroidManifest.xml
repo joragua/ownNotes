@@ -13,8 +13,9 @@
         android:theme="@style/Theme.OwnNotes"
         tools:targetApi="31">
         <activity
-            android:name=".owNotesApp.MainActivity"
-            android:exported="true">
+            android:name=".ownNotesApp.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OwnNotes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
