@@ -1,12 +1,16 @@
 package com.example.ownnotes.ownNotesApp.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ownnotes.R
+import com.example.ownnotes.databinding.ItemNoteBinding
 import com.example.ownnotes.ownNotesDomain.model.Note
 
-class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickListener:(Note) -> Unit, private val onEditClickListener:(Note) -> Unit ) : RecyclerView.Adapter<NoteViewHolder> (){
+class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickListener:(Note) -> Unit, private val onEditClickListener:(Note) -> Unit ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder> (){
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return NoteViewHolder(layoutInflater.inflate(R.layout.item_note, parent, false))
@@ -19,6 +23,17 @@ class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickL
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val item = notesList[position]
         holder.render(item, onDeleteClickListener, onEditClickListener)
+    }
+
+    class NoteViewHolder (view: View): RecyclerView.ViewHolder(view) {
+        private val binding = ItemNoteBinding.bind(view)
+
+        fun render (noteModel: Note, onDeleteClickListener:(Note) -> Unit, onEditClickListener:(Note) -> Unit) {
+            binding.noteTitle.text = noteModel.title
+            binding.noteDescriptionContent.text = noteModel.description
+            binding.deleteIcon.setOnClickListener{ onDeleteClickListener(noteModel)}
+            binding.editIcon.setOnClickListener{ onEditClickListener(noteModel)}
+        }
     }
 
 }
