@@ -22,7 +22,8 @@
             android:textStyle="bold"
             android:layout_marginStart="10dp"
             android:paddingStart="5dp"
-            android:textSize="16sp"
+            android:textSize="19sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,8 +31,11 @@
         <EditText
             android:id="@+id/textField1"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text1" />
 
@@ -43,8 +47,9 @@
             android:textStyle="bold"
             android:layout_marginStart="10dp"
             android:paddingStart="5dp"
-            android:textSize="16sp"
+            android:textSize="19sp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textField1" />
 
@@ -54,21 +59,26 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text2" />
 
         <Button
             android:id="@+id/createButton"
+            style="@style/CreateButtonStyle"
             android:layout_width="150dp"
             android:layout_height="50dp"
+            android:background="@drawable/create_button_shape"
             android:gravity="center"
             android:text="CREATE"
-            style="@style/CreateButtonStyle"
-            android:background="@drawable/create_button_shape"
-            app:layout_constraintTop_toBottomOf="@id/textField2"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textField2"
+            app:layout_constraintVertical_bias="0.181" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
