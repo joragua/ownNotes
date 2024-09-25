@@ -20,4 +20,8 @@ class ONNoteRepository(
         localNoteDataSource.deleteNote(noteId)
     }
 
+    override fun editNote(noteId: Int, title: String, description: String){
+        localNoteDataSource.editNote(noteId, title, description)
+    }
+
 }

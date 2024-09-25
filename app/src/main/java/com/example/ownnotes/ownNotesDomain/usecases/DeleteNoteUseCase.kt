@@ -6,6 +6,6 @@ class DeleteNoteUseCase(
     private val noteRepository: NoteRepository
 ) {
     fun run (noteId: Int) {
-        return noteRepository.deleteNote(noteId)
+       noteRepository.deleteNote(noteId)
     }
 }

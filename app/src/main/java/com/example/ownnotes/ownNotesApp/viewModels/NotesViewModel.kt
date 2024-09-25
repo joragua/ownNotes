@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ownnotes.ownNotesDomain.model.Note
 import com.example.ownnotes.ownNotesDomain.usecases.DeleteNoteUseCase
+import com.example.ownnotes.ownNotesDomain.usecases.EditNoteUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.GetAllNotesUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.SaveNoteUseCase
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +14,8 @@ import kotlinx.coroutines.launch
 class NotesViewModel (
     private val saveNoteUseCase: SaveNoteUseCase,
     private val getAllNotesUseCase: GetAllNotesUseCase,
-    private val deleteNoteUseCase: DeleteNoteUseCase
+    private val deleteNoteUseCase: DeleteNoteUseCase,
+    private val editNoteUseCase: EditNoteUseCase
 ): ViewModel(){
 
     val notesList: Flow<List<Note>> = getAllNotes()
@@ -33,6 +35,12 @@ class NotesViewModel (
             deleteNoteUseCase.run(noteId)
         }
 
+    }
+
+    fun editNote(id: Int, title: String, description: String) {
+        viewModelScope.launch (Dispatchers.IO) {
+            editNoteUseCase.run(id, title, description)
+        }
     }
 
 

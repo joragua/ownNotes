@@ -49,7 +49,7 @@ class NotesListFragment : Fragment() {
     }
 
     fun editNote(note:Note){
-        Log.i("note", "La nota que se ha pulsado es: $note")
+        findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(note))
     }
 
 

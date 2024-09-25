@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = "ownNotes"
 
         binding.fab.setOnClickListener { view ->
-            findNavController(R.id.navHostFragment).navigate(R.id.action_notesListFragment_to_newNotesFragment)
+            findNavController(R.id.navHostFragment).navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(null))
             view.visibility = View.GONE
             supportActionBar?.title = "Create a note"
         }

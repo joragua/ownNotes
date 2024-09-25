@@ -10,4 +10,6 @@ interface NoteRepository {
     fun getAllNotes () : Flow<List<Note>>
 
     fun deleteNote (noteId: Int)
+
+    fun editNote(noteId: Int, title: String, description: String)
 }

@@ -10,6 +10,7 @@ import com.example.ownnotes.ownNotesDomain.NoteRepository
 import com.example.ownnotes.ownNotesDomain.usecases.SaveNoteUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.GetAllNotesUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.DeleteNoteUseCase
+import com.example.ownnotes.ownNotesDomain.usecases.EditNoteUseCase
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.dsl.factoryOf
@@ -24,5 +25,6 @@ val appModule = module {
     factoryOf(::SaveNoteUseCase)
     factoryOf(::GetAllNotesUseCase)
     factoryOf(::DeleteNoteUseCase)
-    viewModel{NotesViewModel(get(), get(), get())}
+    factoryOf(::EditNoteUseCase)
+    viewModel{NotesViewModel(get(), get(), get(), get())}
 }

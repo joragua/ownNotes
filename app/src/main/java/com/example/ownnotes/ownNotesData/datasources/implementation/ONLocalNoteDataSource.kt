@@ -22,4 +22,9 @@ class ONLocalNoteDataSource (
         noteDao.deleteNote(noteId)
     }
 
+    override fun editNote(id: Int, title: String, description: String ){
+        val noteEntity = NoteEntity (id, title, description)
+        noteDao.upsertNote(noteEntity)
+    }
+
 }
