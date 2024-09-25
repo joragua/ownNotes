@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -42,10 +43,14 @@ class NewNotesFragment : Fragment() {
         val textField1 = binding.textField1
         val textField2 = binding.textField2
 
+        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+        toolbar.title = "Create a note"
+
         args.note?.let { note ->
             textField1.setText(note.title)
             textField2.setText(note.description)
             createButton.text = "EDIT NOTE"
+            toolbar.title = "Edit a note"
         }
 
         createButton.setOnClickListener{
