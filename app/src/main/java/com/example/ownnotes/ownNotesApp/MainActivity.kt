@@ -38,19 +38,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         supportActionBar?.title = "ownNotes"
-
-        binding.fab.setOnClickListener { view ->
-            findNavController(R.id.navHostFragment).navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(null))
-            view.visibility = View.GONE
-            supportActionBar?.title = "Create a note"
-        }
-
-
+        //supportActionBar?.title = "Create a note"
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.navHostFragment)
-        binding.fab.visibility = View.VISIBLE
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
 

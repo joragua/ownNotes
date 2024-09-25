@@ -1,21 +1,15 @@
 package com.example.ownnotes.ownNotesApp
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ownnotes.R
 import com.example.ownnotes.databinding.FragmentFirstBinding
-import com.example.ownnotes.databinding.FragmentNewNotesBinding
-import com.example.ownnotes.databinding.ItemNoteBinding
 import com.example.ownnotes.ownNotesApp.adapter.NoteAdapter
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import com.example.ownnotes.ownNotesDomain.model.Note
@@ -41,6 +35,11 @@ class NotesListFragment : Fragment() {
             notesViewModel.notesList.collect { notesList ->
                 recyclerView.adapter = NoteAdapter(notesList, { note -> deleteNote(note) }, { note -> editNote(note) })
             }
+        }
+
+        binding.fab.setOnClickListener { view ->
+            findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(null))
+            view.visibility = View.GONE
         }
     }
 
