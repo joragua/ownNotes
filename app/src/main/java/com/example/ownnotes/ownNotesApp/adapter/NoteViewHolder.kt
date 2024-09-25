@@ -8,9 +8,10 @@ import com.example.ownnotes.ownNotesDomain.model.Note
 class NoteViewHolder (view: View): ViewHolder(view) {
     val binding = ItemNoteBinding.bind(view)
 
-    fun render (noteModel: Note, onClickListener:(Note) -> Unit) {
+    fun render (noteModel: Note, onDeleteClickListener:(Note) -> Unit, onEditClickListener:(Note) -> Unit) {
         binding.noteTitle.text = noteModel.title
         binding.noteDescriptionContent.text = noteModel.description
-        binding.deleteIcon.setOnClickListener{ onClickListener(noteModel)}
+        binding.deleteIcon.setOnClickListener{ onDeleteClickListener(noteModel)}
+        binding.editIcon.setOnClickListener{ onEditClickListener(noteModel)}
     }
 }

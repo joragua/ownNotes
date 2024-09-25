@@ -2,6 +2,7 @@ package com.example.ownnotes.ownNotesApp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,13 +39,19 @@ class NotesListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewLifecycleOwner.lifecycleScope.launch {
             notesViewModel.notesList.collect { notesList ->
-                recyclerView.adapter = NoteAdapter(notesList) { note -> onItemSelected(note) }
+                recyclerView.adapter = NoteAdapter(notesList, { note -> deleteNote(note) }, { note -> editNote(note) })
             }
         }
     }
 
-    fun onItemSelected(note: Note){
+    fun deleteNote(note: Note){
         notesViewModel.deleteNote(note.id)
     }
+
+    fun editNote(note:Note){
+        Log.i("note", "La nota que se ha pulsado es: $note")
+    }
+
+
 
 }

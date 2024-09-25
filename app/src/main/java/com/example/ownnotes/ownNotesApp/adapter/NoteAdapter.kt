@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ownnotes.R
 import com.example.ownnotes.ownNotesDomain.model.Note
 
-class NoteAdapter (private val notesList: List<Note>, private val onClickListener:(Note) -> Unit) : RecyclerView.Adapter<NoteViewHolder> (){
+class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickListener:(Note) -> Unit, private val onEditClickListener:(Note) -> Unit ) : RecyclerView.Adapter<NoteViewHolder> (){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return NoteViewHolder(layoutInflater.inflate(R.layout.item_note, parent, false))
@@ -18,7 +18,7 @@ class NoteAdapter (private val notesList: List<Note>, private val onClickListene
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val item = notesList[position]
-        holder.render(item, onClickListener)
+        holder.render(item, onDeleteClickListener, onEditClickListener)
     }
 
 }
