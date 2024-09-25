@@ -21,5 +21,10 @@
         <action
             android:id="@+id/action_newNotesFragment_to_notesListFragment2"
             app:destination="@id/notesListFragment" />
+        <argument
+            android:name="note"
+            app:nullable="true"
+            app:argType="com.example.ownnotes.ownNotesDomain.model.Note" />
+
     </fragment>
 </navigation>
