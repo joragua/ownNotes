@@ -16,8 +16,8 @@ class ONNoteRepository(
         return localNoteDataSource.getAllNotes()
     }
 
-    override fun deleteNote(noteId: Int){
-        localNoteDataSource.deleteNote(noteId)
+    override fun deleteNote(note: Note){
+        localNoteDataSource.deleteNote(note)
     }
 
     override fun editNote(noteId: Int, title: String, description: String){

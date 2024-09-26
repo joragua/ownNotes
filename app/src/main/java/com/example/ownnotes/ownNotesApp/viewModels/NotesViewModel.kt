@@ -30,9 +30,9 @@ class NotesViewModel (
         return getAllNotesUseCase.run()
     }
 
-    fun deleteNote(noteId: Int) {
+    fun deleteNote(note: Note) {
         viewModelScope.launch (Dispatchers.IO) {
-            deleteNoteUseCase.run(noteId)
+            deleteNoteUseCase.run(note)
         }
 
     }

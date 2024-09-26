@@ -18,8 +18,9 @@ class ONLocalNoteDataSource (
         return noteDao.getAllNotes()
     }
 
-    override fun deleteNote(noteId: Int){
-        noteDao.deleteNote(noteId)
+    override fun deleteNote(note: Note){
+        val noteEntity = NoteEntity(note.id, note.title, note.description)
+        noteDao.deleteNote(noteEntity)
     }
 
     override fun editNote(id: Int, title: String, description: String ){

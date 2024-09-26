@@ -58,7 +58,7 @@ class NotesListFragment : Fragment() {
         builder.setMessage("¿Do you want to delete the note with title: ${note.title}?")
 
         builder.setPositiveButton("Delete") { dialog, _ ->
-            notesViewModel.deleteNote(note.id)
+            notesViewModel.deleteNote(note)
             dialog.dismiss()
             showUndoSnackbar(view, note)
         }
