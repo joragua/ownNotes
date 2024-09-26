@@ -16,6 +16,7 @@ import com.example.ownnotes.databinding.FragmentFirstBinding
 import com.example.ownnotes.ownNotesApp.adapter.NoteAdapter
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import com.example.ownnotes.ownNotesDomain.model.Note
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -59,6 +60,7 @@ class NotesListFragment : Fragment() {
         builder.setPositiveButton("Delete") { dialog, _ ->
             notesViewModel.deleteNote(note.id)
             dialog.dismiss()
+            showUndoSnackbar(view, note)
         }
 
         builder.setNegativeButton("Cancel") { dialog, _ ->
@@ -66,12 +68,19 @@ class NotesListFragment : Fragment() {
         }
 
         builder.create().show()
-
-
     }
 
     private fun editNote(note:Note){
         findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(note))
+    }
+
+    private fun showUndoSnackbar(view: View?, note: Note) {
+        view?.let {
+            Snackbar.make(it, "Note removed", Snackbar.LENGTH_LONG)
+                .setAction("Undo") {
+                    notesViewModel.editNote(note.id, note.title, note.description)
+                }
+        }?.show()
     }
 
 
