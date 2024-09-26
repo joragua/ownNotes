@@ -55,7 +55,7 @@ class NotesListFragment : Fragment() {
     private fun deleteNote(note: Note){
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Confirmation")
-        builder.setMessage("¿Do you want to delete the note with title: ${note.title}?")
+        builder.setMessage("Do you want to delete the note with title: ${note.title}?")
 
         builder.setPositiveButton("Delete") { dialog, _ ->
             notesViewModel.deleteNote(note)
