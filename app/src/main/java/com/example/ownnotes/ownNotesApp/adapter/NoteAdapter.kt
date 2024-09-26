@@ -1,5 +1,7 @@
 package com.example.ownnotes.ownNotesApp.adapter
 
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +33,12 @@ class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickL
         fun render (noteModel: Note, onDeleteClickListener:(Note) -> Unit, onEditClickListener:(Note) -> Unit) {
             binding.noteTitle.text = noteModel.title
             binding.noteDescriptionContent.text = noteModel.description
+            binding.deleteIcon.setBackgroundColor(Color.parseColor(noteModel.color.toHex()))
             binding.deleteIcon.setOnClickListener{ onDeleteClickListener(noteModel)}
+            binding.editIcon.setBackgroundColor(Color.parseColor(noteModel.color.toHex()))
             binding.editIcon.setOnClickListener{ onEditClickListener(noteModel)}
+            binding.noteCard.setCardBackgroundColor(Color.parseColor(noteModel.color.toHex()))
+
         }
     }
 

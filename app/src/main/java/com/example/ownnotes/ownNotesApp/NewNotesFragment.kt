@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.ownnotes.R
 import com.example.ownnotes.databinding.FragmentNewNotesBinding
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
+import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.coroutines.ContinuationInterceptor.Key.equals
 
@@ -42,8 +43,10 @@ class NewNotesFragment : Fragment() {
         val createButton = binding.createButton
         val textField1 = binding.textField1
         val textField2 = binding.textField2
-
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+        val radioGroup = binding.radioGroup
+        var colorNote = ColorNote.YELLOW
+
         toolbar.title = "Create a note"
 
         args.note?.let { note ->
@@ -53,11 +56,26 @@ class NewNotesFragment : Fragment() {
             toolbar.title = "Edit a note"
         }
 
+        val colorMap = mapOf(
+            R.id.radio_option_yellow to ColorNote.YELLOW,
+            R.id.radio_option_blue to ColorNote.BLUE,
+            R.id.radio_option_green to ColorNote.GREEN,
+            R.id.radio_option_red to ColorNote.RED
+        )
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            colorNote = colorMap[checkedId] ?: ColorNote.YELLOW
+        }
+
+
+
+
         createButton.setOnClickListener{
+            Log.i("color", colorNote.toString())
             if (args.note == null) {
-                notesViewModel.textFields(textField1.text.toString(), textField2.text.toString())
+                notesViewModel.textFields(textField1.text.toString(), textField2.text.toString(), colorNote)
             } else {
-                notesViewModel.editNote(args.note!!.id, textField1.text.toString(), textField2.text.toString())
+                notesViewModel.editNote(args.note!!.id, textField1.text.toString(), textField2.text.toString(), colorNote)
             }
             findNavController().navigate(R.id.action_newNotesFragment_to_notesListFragment2)
         }
