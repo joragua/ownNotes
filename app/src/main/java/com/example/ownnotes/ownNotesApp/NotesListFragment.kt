@@ -1,5 +1,6 @@
 package com.example.ownnotes.ownNotesApp
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,11 +51,26 @@ class NotesListFragment : Fragment() {
         }
     }
 
-    fun deleteNote(note: Note){
-        notesViewModel.deleteNote(note.id)
+    private fun deleteNote(note: Note){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Confirmation")
+        builder.setMessage("¿Do you want to delete the note with title: ${note.title}?")
+
+        builder.setPositiveButton("Delete") { dialog, _ ->
+            notesViewModel.deleteNote(note.id)
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        builder.create().show()
+
+
     }
 
-    fun editNote(note:Note){
+    private fun editNote(note:Note){
         findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(note))
     }
 
