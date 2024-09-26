@@ -36,27 +36,31 @@
             app:layout_constraintTop_toBottomOf="@+id/note_title"
             tools:text="@string/note_description" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/delete_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/delete_icon"
             android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
+            android:stateListAnimator="@anim/elevator_animation"
+            android:background="@color/fab_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </ImageView>
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/edit_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/edit_icon"
+            android:scaleType="fitCenter"
             android:layout_marginTop="20dp"
             android:layout_marginRight="55dp"
+            android:background="@color/fab_background"
+            android:src="@drawable/edit_icon"
+            android:stateListAnimator="@anim/elevator_animation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </ImageView>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

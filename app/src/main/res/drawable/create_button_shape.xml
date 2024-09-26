@@ -6,7 +6,4 @@
         android:radius="5dp"/>
     <solid
         android:color="@color/fab_background" />
-    <stroke
-        android:width="1dip"
-        android:color="@android:color/black"/>
 </shape>
