@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="fab_background">#fff5d9</color>
+    <color name="yellow_note">#fff5d9</color>
+    <color name="red_note">#e09591</color>
+    <color name="green_note">#d8dcba</color>
+    <color name="blue_note">#CCE3DE</color>
 </resources>

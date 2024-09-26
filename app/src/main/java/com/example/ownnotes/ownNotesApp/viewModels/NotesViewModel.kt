@@ -2,6 +2,7 @@ package com.example.ownnotes.ownNotesApp.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import com.example.ownnotes.ownNotesDomain.model.Note
 import com.example.ownnotes.ownNotesDomain.usecases.DeleteNoteUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.EditNoteUseCase
@@ -20,9 +21,9 @@ class NotesViewModel (
 
     val notesList: Flow<List<Note>> = getAllNotes()
 
-    fun textFields (argument1: String, argument2: String) {
+    fun textFields (argument1: String, argument2: String, color: ColorNote) {
         viewModelScope.launch (Dispatchers.IO) {
-            saveNoteUseCase.run(argument1, argument2)
+            saveNoteUseCase.run(argument1, argument2, color)
         }
     }
 
@@ -37,9 +38,9 @@ class NotesViewModel (
 
     }
 
-    fun editNote(id: Int, title: String, description: String) {
+    fun editNote(id: Int, title: String, description: String, color: ColorNote) {
         viewModelScope.launch (Dispatchers.IO) {
-            editNoteUseCase.run(id, title, description)
+            editNoteUseCase.run(id, title, description, color)
         }
     }
 

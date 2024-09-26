@@ -78,7 +78,7 @@ class NotesListFragment : Fragment() {
         view?.let {
             Snackbar.make(it, "Note removed", Snackbar.LENGTH_LONG)
                 .setAction("Undo") {
-                    notesViewModel.editNote(note.id, note.title, note.description)
+                    notesViewModel.editNote(note.id, note.title, note.description, note.color)
                 }
         }?.show()
     }

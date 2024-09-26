@@ -49,4 +49,9 @@
     <string name="note_title">Title</string>
     <string name="note_description">Description</string>
     <string name="create_note">CREATE NOTE</string>
+    <string name="color">Color</string>
+    <string name="yellow">YELLOW</string>
+    <string name="blue">BLUE</string>
+    <string name="green">GREEN</string>
+    <string name="red">RED</string>
 </resources>
