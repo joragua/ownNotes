@@ -66,6 +66,11 @@ dependencies {
     // Koin
     implementation(libs.koin.android)
 
+    // Retrofit
+    implementation(libs.retrofit)
+    // Retrofit with Scalar Converter
+    implementation(libs.converter.scalars)
+
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
