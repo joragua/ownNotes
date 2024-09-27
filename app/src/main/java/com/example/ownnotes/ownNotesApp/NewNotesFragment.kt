@@ -43,6 +43,8 @@ class NewNotesFragment : Fragment() {
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
         val radioGroup = binding.radioGroup
         var colorNote = ColorNote.YELLOW
+        val divider = binding.divider
+        val randomTitle = binding.textRandomNote
 
         toolbar.title = "Create a note"
 
@@ -51,6 +53,12 @@ class NewNotesFragment : Fragment() {
             textField2.setText(note.description)
             createButton.text = "EDIT NOTE"
             toolbar.title = "Edit a note"
+        }
+
+        if (args.random == "No"){
+            randomButton.visibility= View.GONE
+            divider.visibility= View.GONE
+            randomTitle.visibility= View.GONE
         }
 
         val colorMap = mapOf(
