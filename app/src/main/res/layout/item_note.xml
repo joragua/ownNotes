@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:textColor="@color/black"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/note_title"
             tools:text="@string/note_description" />

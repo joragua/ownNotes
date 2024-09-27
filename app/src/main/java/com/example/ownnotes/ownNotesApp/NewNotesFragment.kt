@@ -17,11 +17,7 @@ import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.coroutines.ContinuationInterceptor.Key.equals
 
-/**
- * A simple [Fragment] subclass.
- * Use the [NewNotesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class NewNotesFragment : Fragment() {
     private val notesViewModel by viewModel<NotesViewModel>()
     private lateinit var binding: FragmentNewNotesBinding
@@ -41,11 +37,14 @@ class NewNotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val createButton = binding.createButton
+        val randomButton = binding.randomButton
         val textField1 = binding.textField1
         val textField2 = binding.textField2
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
         val radioGroup = binding.radioGroup
         var colorNote = ColorNote.YELLOW
+        val divider = binding.divider
+        val randomTitle = binding.textRandomNote
 
         toolbar.title = "Create a note"
 
@@ -54,6 +53,12 @@ class NewNotesFragment : Fragment() {
             textField2.setText(note.description)
             createButton.text = "EDIT NOTE"
             toolbar.title = "Edit a note"
+        }
+
+        if (args.random == "No"){
+            randomButton.visibility= View.GONE
+            divider.visibility= View.GONE
+            randomTitle.visibility= View.GONE
         }
 
         val colorMap = mapOf(
@@ -68,8 +73,6 @@ class NewNotesFragment : Fragment() {
         }
 
 
-
-
         createButton.setOnClickListener{
             Log.i("color", colorNote.toString())
             if (args.note == null) {
@@ -77,6 +80,11 @@ class NewNotesFragment : Fragment() {
             } else {
                 notesViewModel.editNote(args.note!!.id, textField1.text.toString(), textField2.text.toString(), colorNote)
             }
+            findNavController().navigate(R.id.action_newNotesFragment_to_notesListFragment2)
+        }
+
+        randomButton.setOnClickListener{
+            notesViewModel.getNetworkNotes()
             findNavController().navigate(R.id.action_newNotesFragment_to_notesListFragment2)
         }
 
