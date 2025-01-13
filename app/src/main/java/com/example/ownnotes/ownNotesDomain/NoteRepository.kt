@@ -2,6 +2,7 @@ package com.example.ownnotes.ownNotesDomain
 
 import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import com.example.ownnotes.ownNotesDomain.model.Note
+import com.example.ownnotes.ownNotesDomain.model.RandomNote
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
@@ -13,4 +14,6 @@ interface NoteRepository {
     fun deleteNote (note: Note)
 
     fun editNote(noteId: Int, title: String, description: String, color: ColorNote)
+
+    suspend fun getRandomNotes(): RandomNote?
 }

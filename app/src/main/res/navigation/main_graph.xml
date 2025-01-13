@@ -27,6 +27,8 @@
             android:name="note"
             app:nullable="true"
             app:argType="com.example.ownnotes.ownNotesDomain.model.Note" />
-
+        <argument
+            android:name="random"
+            app:argType="string" />
     </fragment>
 </navigation>

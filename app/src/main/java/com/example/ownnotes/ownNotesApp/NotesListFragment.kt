@@ -47,7 +47,7 @@ class NotesListFragment : Fragment() {
         }
 
         binding.fab.setOnClickListener { view ->
-            findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(null))
+            findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(null, "Yes"))
             view.visibility = View.GONE
         }
     }
@@ -71,7 +71,7 @@ class NotesListFragment : Fragment() {
     }
 
     private fun editNote(note:Note){
-        findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(note))
+        findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNewNotesFragment(note, "No"))
     }
 
     private fun showUndoSnackbar(view: View?, note: Note) {
