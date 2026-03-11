@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -40,12 +40,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
-    kapt {
-        arguments {
-            arg("room.schemaLocation", "$projectDir/schemas")
-        }
-    }
 }
 
 dependencies {
@@ -60,7 +54,7 @@ dependencies {
 
     // Room
     implementation (libs.androidx.room.runtime)
-    kapt (libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation (libs.androidx.room.ktx)
 
     // Koin
