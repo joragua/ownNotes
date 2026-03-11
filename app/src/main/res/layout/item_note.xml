@@ -42,7 +42,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/delete_icon"
+            android:src="@drawable/ic_delete_note"
             android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
             android:stateListAnimator="@anim/elevator_animation"
@@ -58,7 +58,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="55dp"
             android:background="@color/fab_background"
-            android:src="@drawable/edit_icon"
+            android:src="@drawable/ic_edit_note"
             android:stateListAnimator="@anim/elevator_animation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
