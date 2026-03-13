@@ -22,14 +22,27 @@ import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val appModule = module {
-    single { OwnNotesDatabase.getDatabase(androidContext()).noteDao()}
-    singleOf(::ONLocalNoteDataSource) bind LocalNoteDataSource::class
-    singleOf(::ONRemoteNoteDataSource) bind RemoteNoteDataSource::class
+    // ViewModels
+    viewModel{ NotesViewModel(get(), get(), get(), get(), get()) }
+}
+
+val domainModule = module {
+    // Repositories
     factoryOf(::ONNoteRepository) bind NoteRepository::class
-    factoryOf(::SaveNoteUseCase)
-    factoryOf(::GetAllNotesUseCase)
+
+    // UseCases
     factoryOf(::DeleteNoteUseCase)
     factoryOf(::EditNoteUseCase)
+    factoryOf(::GetAllNotesUseCase)
     factoryOf(::GetRandomNotesUseCase)
-    viewModel{NotesViewModel(get(), get(), get(), get(), get())}
+    factoryOf(::SaveNoteUseCase)
+}
+
+val dataModule = module {
+    // DataSources
+    singleOf(::ONLocalNoteDataSource) bind LocalNoteDataSource::class
+    singleOf(::ONRemoteNoteDataSource) bind RemoteNoteDataSource::class
+
+    // DAOs
+    single { OwnNotesDatabase.getDatabase(androidContext()).noteDao() }
 }

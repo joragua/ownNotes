@@ -11,6 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.ownnotes.R
 import com.example.ownnotes.databinding.ActivityMainBinding
 import com.example.ownnotes.dependecyinjection.appModule
+import com.example.ownnotes.dependecyinjection.dataModule
+import com.example.ownnotes.dependecyinjection.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         startKoin {
             androidContext(this@MainActivity)
-            modules(appModule)
+            modules(appModule, domainModule, dataModule)
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
