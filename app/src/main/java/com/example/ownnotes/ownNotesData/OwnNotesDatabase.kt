@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-
 @Database (entities = [NoteEntity::class], version = 1, exportSchema = true)
 @TypeConverters(ColorNoteConverter::class)
 abstract class OwnNotesDatabase: RoomDatabase() {

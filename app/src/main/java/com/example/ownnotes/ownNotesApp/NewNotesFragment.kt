@@ -1,6 +1,5 @@
 package com.example.ownnotes.ownNotesApp
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,8 +14,6 @@ import com.example.ownnotes.databinding.FragmentNewNotesBinding
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.coroutines.ContinuationInterceptor.Key.equals
-
 
 class NewNotesFragment : Fragment() {
     private val notesViewModel by viewModel<NotesViewModel>()
@@ -24,14 +21,9 @@ class NewNotesFragment : Fragment() {
 
     val args: NewNotesFragmentArgs by navArgs()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        //Binding
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentNewNotesBinding.inflate(layoutInflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,7 +64,6 @@ class NewNotesFragment : Fragment() {
             colorNote = colorMap[checkedId] ?: ColorNote.YELLOW
         }
 
-
         createButton.setOnClickListener{
             Log.i("color", colorNote.toString())
             if (args.note == null) {
@@ -87,7 +78,5 @@ class NewNotesFragment : Fragment() {
             notesViewModel.getNetworkNotes()
             findNavController().navigate(R.id.action_newNotesFragment_to_notesListFragment2)
         }
-
     }
-
 }

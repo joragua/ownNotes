@@ -1,7 +1,6 @@
 package com.example.ownnotes.ownNotesApp
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -40,13 +39,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         supportActionBar?.title = "ownNotes"
-        //supportActionBar?.title = "Create a note"
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.navHostFragment)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

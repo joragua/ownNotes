@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
-
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -23,10 +22,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class NotesListFragment : Fragment() {
     private val notesViewModel by viewModel<NotesViewModel>()
     private lateinit var binding: FragmentFirstBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentFirstBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -36,7 +33,6 @@ class NotesListFragment : Fragment() {
 
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
         toolbar.title = "ownNotes"
-
 
         val recyclerView = binding.recyclerNotes
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -82,7 +78,4 @@ class NotesListFragment : Fragment() {
                 }
         }?.show()
     }
-
-
-
 }

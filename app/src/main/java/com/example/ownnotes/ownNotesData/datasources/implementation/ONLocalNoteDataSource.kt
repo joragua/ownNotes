@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 class ONLocalNoteDataSource (
     private val noteDao: NoteDAO
 ) : LocalNoteDataSource {
+
     override fun saveNote(title: String, description: String, color: ColorNote) {
         val noteEntity = NoteEntity (0, title, description, color)
         noteDao.insertNote(noteEntity)
@@ -28,5 +29,4 @@ class ONLocalNoteDataSource (
         val noteEntity = NoteEntity (id, title, description, color)
         noteDao.upsertNote(noteEntity)
     }
-
 }

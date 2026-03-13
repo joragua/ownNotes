@@ -1,6 +1,5 @@
 package com.example.ownnotes.ownNotesData.datasources.implementation
 
-import android.util.Log
 import com.example.ownnotes.ownNotesComLibrary.MarsApi
 import com.example.ownnotes.ownNotesData.datasources.RemoteNoteDataSource
 import com.example.ownnotes.ownNotesDomain.model.RandomNote

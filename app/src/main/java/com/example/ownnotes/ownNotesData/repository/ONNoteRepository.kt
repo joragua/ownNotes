@@ -12,6 +12,7 @@ class ONNoteRepository(
     private val localNoteDataSource: LocalNoteDataSource,
     private val remoteNoteDataSource: RemoteNoteDataSource
 ): NoteRepository {
+
     override fun saveNote(title: String, description: String, color: ColorNote) {
         localNoteDataSource.saveNote(title, description, color)
     }
@@ -31,5 +32,4 @@ class ONNoteRepository(
     override suspend fun getRandomNotes() : RandomNote? {
         return remoteNoteDataSource.getRandomNotes()
     }
-
 }

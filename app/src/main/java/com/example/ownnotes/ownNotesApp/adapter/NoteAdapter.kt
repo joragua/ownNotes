@@ -1,7 +1,6 @@
 package com.example.ownnotes.ownNotesApp.adapter
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,11 @@ import com.example.ownnotes.R
 import com.example.ownnotes.databinding.ItemNoteBinding
 import com.example.ownnotes.ownNotesDomain.model.Note
 
-class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickListener:(Note) -> Unit, private val onEditClickListener:(Note) -> Unit ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder> (){
-
+class NoteAdapter (
+    private val notesList: List<Note>,
+    private val onDeleteClickListener:(Note) -> Unit,
+    private val onEditClickListener:(Note) -> Unit
+) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder> (){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -41,5 +43,4 @@ class NoteAdapter (private val notesList: List<Note>, private val onDeleteClickL
 
         }
     }
-
 }

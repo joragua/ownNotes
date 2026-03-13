@@ -17,9 +17,9 @@ interface NoteDAO {
     @Query("SELECT * FROM notes")
     fun getAllNotes(): Flow<List<Note>>
 
-     @Delete
-     fun deleteNote(noteEntity: NoteEntity)
+    @Delete
+    fun deleteNote(noteEntity: NoteEntity)
 
-     @Upsert
-     fun upsertNote(noteEntity: NoteEntity)
+    @Upsert
+    fun upsertNote(noteEntity: NoteEntity)
 }

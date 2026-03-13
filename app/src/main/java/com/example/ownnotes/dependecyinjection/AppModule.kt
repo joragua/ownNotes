@@ -1,6 +1,5 @@
 package com.example.ownnotes.dependecyinjection
 
-
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import com.example.ownnotes.ownNotesData.datasources.LocalNoteDataSource
 import com.example.ownnotes.ownNotesData.datasources.RemoteNoteDataSource

@@ -1,25 +1,17 @@
 package com.example.ownnotes.ownNotesApp.viewModels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ownnotes.ownNotesComLibrary.MarsApi
 import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import com.example.ownnotes.ownNotesDomain.model.Note
-import com.example.ownnotes.ownNotesDomain.model.RandomNote
 import com.example.ownnotes.ownNotesDomain.usecases.DeleteNoteUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.EditNoteUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.GetAllNotesUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.GetRandomNotesUseCase
 import com.example.ownnotes.ownNotesDomain.usecases.SaveNoteUseCase
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-import com.squareup.moshi.adapter
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import java.util.Random
 
 class NotesViewModel (
     private val saveNoteUseCase: SaveNoteUseCase,
@@ -45,7 +37,6 @@ class NotesViewModel (
         viewModelScope.launch (Dispatchers.IO) {
             deleteNoteUseCase.run(note)
         }
-
     }
 
     fun editNote(id: Int, title: String, description: String, color: ColorNote) {
@@ -62,6 +53,4 @@ class NotesViewModel (
             }
         }
     }
-
-
 }
