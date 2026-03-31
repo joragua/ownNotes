@@ -10,19 +10,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ownnotes.R
-import com.example.ownnotes.databinding.FragmentNewNotesBinding
+import com.example.ownnotes.databinding.CreateNoteFragmentBinding
 import com.example.ownnotes.ownNotesApp.viewModels.NotesViewModel
 import com.example.ownnotes.ownNotesDomain.model.ColorNote
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewNotesFragment : Fragment() {
     private val notesViewModel by viewModel<NotesViewModel>()
-    private lateinit var binding: FragmentNewNotesBinding
+    private lateinit var binding: CreateNoteFragmentBinding
 
     val args: NewNotesFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentNewNotesBinding.inflate(layoutInflater, container, false)
+        binding = CreateNoteFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
