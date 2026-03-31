@@ -6,10 +6,21 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="common_cancel">Cancel</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_undo">Undo</string>
+    <string name="common_confirmation">Confirmation</string>
+
     <string name="note_title">Title</string>
     <string name="note_description">Description</string>
     <string name="note_color">Color</string>
-    <string name="create_note_button">Create note</string>
+    <string name="random_note">Random note</string>
+
+    <string name="create_note">Create note</string>
+    <string name="create_random_note">Create random note</string>
+    <string name="edit_note">Edit note</string>
+    <string name="delete_note_dialog_message">Do you want to delete the note with title: %1$s?</string>
+    <string name="delete_note_correctly">Note deleted correctly</string>
 
     <string name="color_yellow">Yellow</string>
     <string name="color_blue">Blue</string>

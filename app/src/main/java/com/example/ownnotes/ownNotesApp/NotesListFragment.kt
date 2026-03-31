@@ -32,7 +32,7 @@ class NotesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
-        toolbar.title = "ownNotes"
+        toolbar.title = getString(R.string.app_name)
 
         val recyclerView = binding.recyclerNotes
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -50,16 +50,16 @@ class NotesListFragment : Fragment() {
 
     private fun deleteNote(note: Note){
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Confirmation")
-        builder.setMessage("Do you want to delete the note with title: ${note.title}?")
+        builder.setTitle(R.string.common_confirmation)
+        builder.setMessage(getString(R.string.delete_note_dialog_message, note.title))
 
-        builder.setPositiveButton("Delete") { dialog, _ ->
+        builder.setPositiveButton(R.string.common_delete) { dialog, _ ->
             notesViewModel.deleteNote(note)
             dialog.dismiss()
             showUndoSnackbar(view, note)
         }
 
-        builder.setNegativeButton("Cancel") { dialog, _ ->
+        builder.setNegativeButton(R.string.common_cancel) { dialog, _ ->
             dialog.dismiss()
         }
 
@@ -72,8 +72,8 @@ class NotesListFragment : Fragment() {
 
     private fun showUndoSnackbar(view: View?, note: Note) {
         view?.let {
-            Snackbar.make(it, "Note removed", Snackbar.LENGTH_LONG)
-                .setAction("Undo") {
+            Snackbar.make(it, R.string.delete_note_correctly, Snackbar.LENGTH_LONG)
+                .setAction(R.string.common_undo) {
                     notesViewModel.editNote(note.id, note.title, note.description, note.color)
                 }
         }?.show()

@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        supportActionBar?.title = "ownNotes"
+        supportActionBar?.title = getString(R.string.app_name)
     }
 
     override fun onSupportNavigateUp(): Boolean {

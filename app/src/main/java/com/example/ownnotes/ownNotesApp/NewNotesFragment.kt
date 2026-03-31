@@ -38,13 +38,13 @@ class NewNotesFragment : Fragment() {
         val divider = binding.divider
         val randomTitle = binding.textRandomNote
 
-        toolbar.title = "Create a note"
+        toolbar.title = getString(R.string.create_note)
 
         args.note?.let { note ->
             textField1.setText(note.title)
             textField2.setText(note.description)
-            createButton.text = "EDIT NOTE"
-            toolbar.title = "Edit a note"
+            createButton.text = getString(R.string.edit_note)
+            toolbar.title = getString(R.string.edit_note)
         }
 
         if (args.random == "No"){
